@@ -8,7 +8,7 @@ venv/
 
 # Explicit dbt & AI venvs (extra safety)
 dbt/dbt-venv/
-AI_Agent/venv/
+AI Agent/venv/
 
 # --------------------
 # Python cache

@@ -1,4 +1,3 @@
-{{ config(materialized='view') }}
 
 select
     event_id::bigint as event_id,
@@ -10,7 +9,7 @@ select
                 '-', ' '
             )
         )
-    ),
+    ) as event_type,
     CAST(event_time as timestamp) as event_time,
     _airbyte_extracted_at,
     _airbyte_generation_id

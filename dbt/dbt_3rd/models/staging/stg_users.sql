@@ -1,4 +1,3 @@
-{{ config(materialized='view') }}
 
 select
     user_id::bigint as user_id,

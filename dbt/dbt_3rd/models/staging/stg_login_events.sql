@@ -1,5 +1,3 @@
-{{ config(materialized='view') }}
-
 
 select
     event_id::bigint as event_id,

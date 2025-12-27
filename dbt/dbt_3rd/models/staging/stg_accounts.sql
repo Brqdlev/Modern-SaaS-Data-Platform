@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+
 
 select
     account_id, 

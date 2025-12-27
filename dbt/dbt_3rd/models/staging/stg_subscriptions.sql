@@ -1,4 +1,3 @@
-{{ config(materialized='view') }}
 
 select
     subscription_id,

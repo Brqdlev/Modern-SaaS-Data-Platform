@@ -1,6 +1,4 @@
-{{ config(materialized='view') }}
 
-select
     event_id,
     account_id,
     lower(trim(feature_name)) as feature_name,

@@ -1,4 +1,3 @@
-{{ config(materialized='view') }}
 
 select
     incident_id::bigint as incident_id,

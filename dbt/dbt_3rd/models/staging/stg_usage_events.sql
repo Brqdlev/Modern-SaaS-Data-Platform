@@ -1,7 +1,13 @@
 select
     event_id,
     account_id,
-    lower(trim(feature_name)) as feature_name,
+    lower(
+        trim(
+            replace(
+                replace(feature_name, '-', ' '),
+                '_', ' ')
+            )
+        ) as feature_name,
     usage_count,
     CAST(event_time as timestamp) as event_time,
     _airbyte_extracted_at,

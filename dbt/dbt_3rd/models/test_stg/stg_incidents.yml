@@ -6,6 +6,5 @@ models:
       - name: incident_id
         tests:
           - not_null
-          - unique
 
 

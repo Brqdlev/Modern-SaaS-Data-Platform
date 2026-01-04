@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    tables:
+      - name: accounts
+      - name: users
+      - name: subscriptions
+      - name: billing_events
+      - name: usage_events
+      - name: login_events
+      - name: incidents
+      - name: incident_events

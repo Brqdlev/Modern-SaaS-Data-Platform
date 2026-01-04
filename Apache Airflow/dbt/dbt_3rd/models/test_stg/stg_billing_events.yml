@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_billing_events
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+
+

@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_incidents
+    columns:
+      - name: incident_id
+        tests:
+          - not_null
+
+

@@ -1,0 +1,44 @@
+[2026-01-04T05:49:29.259+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_bronze_to_gold.dbt_staging manual__2026-01-04T05:49:28.159666+00:00 [queued]>
+[2026-01-04T05:49:29.271+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_bronze_to_gold.dbt_staging manual__2026-01-04T05:49:28.159666+00:00 [queued]>
+[2026-01-04T05:49:29.272+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-01-04T05:49:29.290+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_staging> on 2026-01-04 05:49:28.159666+00:00
+[2026-01-04T05:49:29.294+0000] {standard_task_runner.py:60} INFO - Started process 299 to run task
+[2026-01-04T05:49:29.297+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dbt_bronze_to_gold', 'dbt_staging', 'manual__2026-01-04T05:49:28.159666+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/dbt_pipeline.py', '--cfg-path', '/tmp/tmp7rhpwujw']
+[2026-01-04T05:49:29.299+0000] {standard_task_runner.py:88} INFO - Job 8: Subtask dbt_staging
+[2026-01-04T05:49:29.359+0000] {task_command.py:423} INFO - Running <TaskInstance: dbt_bronze_to_gold.dbt_staging manual__2026-01-04T05:49:28.159666+00:00 [running]> on host 2fdb38e781d4
+[2026-01-04T05:49:29.430+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt_bronze_to_gold' AIRFLOW_CTX_TASK_ID='dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2026-01-04T05:49:28.159666+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-04T05:49:28.159666+00:00'
+[2026-01-04T05:49:29.432+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-04T05:49:29.433+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/dbt/dbt_3rd && dbt run --select staging']
+[2026-01-04T05:49:29.445+0000] {subprocess.py:86} INFO - Output:
+[2026-01-04T05:49:31.672+0000] {subprocess.py:93} INFO - [0m05:49:31  Running with dbt=1.7.9
+[2026-01-04T05:49:31.999+0000] {subprocess.py:93} INFO - [0m05:49:31  Registered adapter: postgres=1.7.9
+[2026-01-04T05:49:32.641+0000] {subprocess.py:93} INFO - [0m05:49:32  Found 27 models, 18 tests, 8 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2026-01-04T05:49:32.644+0000] {subprocess.py:93} INFO - [0m05:49:32
+[2026-01-04T05:49:33.028+0000] {subprocess.py:93} INFO - [0m05:49:33  Concurrency: 1 threads (target='dev')
+[2026-01-04T05:49:33.029+0000] {subprocess.py:93} INFO - [0m05:49:33
+[2026-01-04T05:49:33.040+0000] {subprocess.py:93} INFO - [0m05:49:33  1 of 8 START sql view model analytics_staging.stg_accounts ..................... [RUN]
+[2026-01-04T05:49:33.266+0000] {subprocess.py:93} INFO - [0m05:49:33  1 of 8 OK created sql view model analytics_staging.stg_accounts ................ [[32mCREATE VIEW[0m in 0.23s]
+[2026-01-04T05:49:33.269+0000] {subprocess.py:93} INFO - [0m05:49:33  2 of 8 START sql view model analytics_staging.stg_billing_events ............... [RUN]
+[2026-01-04T05:49:33.390+0000] {subprocess.py:93} INFO - [0m05:49:33  2 of 8 OK created sql view model analytics_staging.stg_billing_events .......... [[32mCREATE VIEW[0m in 0.12s]
+[2026-01-04T05:49:33.393+0000] {subprocess.py:93} INFO - [0m05:49:33  3 of 8 START sql view model analytics_staging.stg_incident_events .............. [RUN]
+[2026-01-04T05:49:33.530+0000] {subprocess.py:93} INFO - [0m05:49:33  3 of 8 OK created sql view model analytics_staging.stg_incident_events ......... [[32mCREATE VIEW[0m in 0.13s]
+[2026-01-04T05:49:33.532+0000] {subprocess.py:93} INFO - [0m05:49:33  4 of 8 START sql view model analytics_staging.stg_incidents .................... [RUN]
+[2026-01-04T05:49:33.654+0000] {subprocess.py:93} INFO - [0m05:49:33  4 of 8 OK created sql view model analytics_staging.stg_incidents ............... [[32mCREATE VIEW[0m in 0.12s]
+[2026-01-04T05:49:33.656+0000] {subprocess.py:93} INFO - [0m05:49:33  5 of 8 START sql view model analytics_staging.stg_login_events ................. [RUN]
+[2026-01-04T05:49:33.791+0000] {subprocess.py:93} INFO - [0m05:49:33  5 of 8 OK created sql view model analytics_staging.stg_login_events ............ [[32mCREATE VIEW[0m in 0.13s]
+[2026-01-04T05:49:33.794+0000] {subprocess.py:93} INFO - [0m05:49:33  6 of 8 START sql view model analytics_staging.stg_subscriptions ................ [RUN]
+[2026-01-04T05:49:33.185+0000] {subprocess.py:93} INFO - [0m05:49:33  6 of 8 OK created sql view model analytics_staging.stg_subscriptions ........... [[32mCREATE VIEW[0m in -0.61s]
+[2026-01-04T05:49:33.189+0000] {subprocess.py:93} INFO - [0m05:49:33  7 of 8 START sql view model analytics_staging.stg_usage_events ................. [RUN]
+[2026-01-04T05:49:33.346+0000] {subprocess.py:93} INFO - [0m05:49:33  7 of 8 OK created sql view model analytics_staging.stg_usage_events ............ [[32mCREATE VIEW[0m in 0.16s]
+[2026-01-04T05:49:33.350+0000] {subprocess.py:93} INFO - [0m05:49:33  8 of 8 START sql view model analytics_staging.stg_users ........................ [RUN]
+[2026-01-04T05:49:32.296+0000] {subprocess.py:93} INFO - [0m05:49:32  8 of 8 OK created sql view model analytics_staging.stg_users ................... [[32mCREATE VIEW[0m in -1.05s]
+[2026-01-04T05:49:32.353+0000] {subprocess.py:93} INFO - [0m05:49:32
+[2026-01-04T05:49:32.354+0000] {subprocess.py:93} INFO - [0m05:49:32  Finished running 8 view models in -1 hours 59 minutes and 59.71 seconds (-0.29s).
+[2026-01-04T05:49:32.400+0000] {subprocess.py:93} INFO - [0m05:49:32
+[2026-01-04T05:49:32.401+0000] {subprocess.py:93} INFO - [0m05:49:32  [32mCompleted successfully[0m
+[2026-01-04T05:49:32.402+0000] {subprocess.py:93} INFO - [0m05:49:32
+[2026-01-04T05:49:32.403+0000] {subprocess.py:93} INFO - [0m05:49:32  Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+[2026-01-04T05:49:32.575+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-04T05:49:32.598+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dbt_bronze_to_gold, task_id=dbt_staging, execution_date=20260104T054928, start_date=20260104T054929, end_date=20260104T054932
+[2026-01-04T05:49:34.130+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-04T05:49:34.150+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

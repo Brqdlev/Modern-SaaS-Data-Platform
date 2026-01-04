@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_subscriptions
+    columns:
+      - name: subscription_id
+        tests:
+          - not_null
+          - unique
+
+      - name: account_id
+        tests:
+          - not_null
+

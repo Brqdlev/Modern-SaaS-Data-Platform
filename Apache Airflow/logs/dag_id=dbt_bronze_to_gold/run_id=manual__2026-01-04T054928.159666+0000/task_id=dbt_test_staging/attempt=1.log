@@ -1,0 +1,64 @@
+[2026-01-04T05:49:32.839+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_bronze_to_gold.dbt_test_staging manual__2026-01-04T05:49:28.159666+00:00 [queued]>
+[2026-01-04T05:49:32.847+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_bronze_to_gold.dbt_test_staging manual__2026-01-04T05:49:28.159666+00:00 [queued]>
+[2026-01-04T05:49:32.847+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-01-04T05:49:32.861+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_test_staging> on 2026-01-04 05:49:28.159666+00:00
+[2026-01-04T05:49:32.866+0000] {standard_task_runner.py:60} INFO - Started process 309 to run task
+[2026-01-04T05:49:32.869+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dbt_bronze_to_gold', 'dbt_test_staging', 'manual__2026-01-04T05:49:28.159666+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/dbt_pipeline.py', '--cfg-path', '/tmp/tmpapx5jbtu']
+[2026-01-04T05:49:32.871+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask dbt_test_staging
+[2026-01-04T05:49:32.935+0000] {task_command.py:423} INFO - Running <TaskInstance: dbt_bronze_to_gold.dbt_test_staging manual__2026-01-04T05:49:28.159666+00:00 [running]> on host 2fdb38e781d4
+[2026-01-04T05:49:33.004+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt_bronze_to_gold' AIRFLOW_CTX_TASK_ID='dbt_test_staging' AIRFLOW_CTX_EXECUTION_DATE='2026-01-04T05:49:28.159666+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-04T05:49:28.159666+00:00'
+[2026-01-04T05:49:33.005+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-04T05:49:33.006+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/dbt/dbt_3rd && dbt test --select test_stg']
+[2026-01-04T05:49:33.015+0000] {subprocess.py:86} INFO - Output:
+[2026-01-04T05:49:35.069+0000] {subprocess.py:93} INFO - [0m05:49:35  Running with dbt=1.7.9
+[2026-01-04T05:49:35.330+0000] {subprocess.py:93} INFO - [0m05:49:35  Registered adapter: postgres=1.7.9
+[2026-01-04T05:49:35.785+0000] {subprocess.py:93} INFO - [0m05:49:35  Found 27 models, 18 tests, 8 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2026-01-04T05:49:35.788+0000] {subprocess.py:93} INFO - [0m05:49:35
+[2026-01-04T05:49:36.185+0000] {subprocess.py:93} INFO - [0m05:49:36  Concurrency: 1 threads (target='dev')
+[2026-01-04T05:49:36.186+0000] {subprocess.py:93} INFO - [0m05:49:36
+[2026-01-04T05:49:36.195+0000] {subprocess.py:93} INFO - [0m05:49:36  1 of 18 START test not_null_stg_accounts_account_id ............................ [RUN]
+[2026-01-04T05:49:36.323+0000] {subprocess.py:93} INFO - [0m05:49:36  1 of 18 PASS not_null_stg_accounts_account_id .................................. [[32mPASS[0m in 0.13s]
+[2026-01-04T05:49:36.325+0000] {subprocess.py:93} INFO - [0m05:49:36  2 of 18 START test not_null_stg_accounts_account_status ........................ [RUN]
+[2026-01-04T05:49:36.462+0000] {subprocess.py:93} INFO - [0m05:49:36  2 of 18 PASS not_null_stg_accounts_account_status .............................. [[32mPASS[0m in 0.14s]
+[2026-01-04T05:49:36.465+0000] {subprocess.py:93} INFO - [0m05:49:36  3 of 18 START test not_null_stg_billing_events_event_id ........................ [RUN]
+[2026-01-04T05:49:36.565+0000] {subprocess.py:93} INFO - [0m05:49:36  3 of 18 PASS not_null_stg_billing_events_event_id .............................. [[32mPASS[0m in 0.10s]
+[2026-01-04T05:49:36.567+0000] {subprocess.py:93} INFO - [0m05:49:36  4 of 18 START test not_null_stg_incident_events_event_id ....................... [RUN]
+[2026-01-04T05:49:36.681+0000] {subprocess.py:93} INFO - [0m05:49:36  4 of 18 PASS not_null_stg_incident_events_event_id ............................. [[32mPASS[0m in 0.11s]
+[2026-01-04T05:49:36.683+0000] {subprocess.py:93} INFO - [0m05:49:36  5 of 18 START test not_null_stg_incidents_incident_id .......................... [RUN]
+[2026-01-04T05:49:36.778+0000] {subprocess.py:93} INFO - [0m05:49:36  5 of 18 PASS not_null_stg_incidents_incident_id ................................ [[32mPASS[0m in 0.09s]
+[2026-01-04T05:49:36.780+0000] {subprocess.py:93} INFO - [0m05:49:36  6 of 18 START test not_null_stg_login_events_event_id .......................... [RUN]
+[2026-01-04T05:49:36.877+0000] {subprocess.py:93} INFO - [0m05:49:36  6 of 18 PASS not_null_stg_login_events_event_id ................................ [[32mPASS[0m in 0.10s]
+[2026-01-04T05:49:36.879+0000] {subprocess.py:93} INFO - [0m05:49:36  7 of 18 START test not_null_stg_subscriptions_account_id ....................... [RUN]
+[2026-01-04T05:49:36.982+0000] {subprocess.py:93} INFO - [0m05:49:36  7 of 18 PASS not_null_stg_subscriptions_account_id ............................. [[32mPASS[0m in 0.10s]
+[2026-01-04T05:49:36.984+0000] {subprocess.py:93} INFO - [0m05:49:36  8 of 18 START test not_null_stg_subscriptions_subscription_id .................. [RUN]
+[2026-01-04T05:49:37.200+0000] {subprocess.py:93} INFO - [0m05:49:37  8 of 18 PASS not_null_stg_subscriptions_subscription_id ........................ [[32mPASS[0m in 0.22s]
+[2026-01-04T05:49:37.203+0000] {subprocess.py:93} INFO - [0m05:49:37  9 of 18 START test not_null_stg_usage_events_event_id .......................... [RUN]
+[2026-01-04T05:49:37.302+0000] {subprocess.py:93} INFO - [0m05:49:37  9 of 18 PASS not_null_stg_usage_events_event_id ................................ [[32mPASS[0m in 0.10s]
+[2026-01-04T05:49:37.305+0000] {subprocess.py:93} INFO - [0m05:49:37  10 of 18 START test not_null_stg_users_account_id .............................. [RUN]
+[2026-01-04T05:49:37.400+0000] {subprocess.py:93} INFO - [0m05:49:37  10 of 18 PASS not_null_stg_users_account_id .................................... [[32mPASS[0m in 0.09s]
+[2026-01-04T05:49:37.403+0000] {subprocess.py:93} INFO - [0m05:49:37  11 of 18 START test not_null_stg_users_user_id ................................. [RUN]
+[2026-01-04T05:49:37.507+0000] {subprocess.py:93} INFO - [0m05:49:37  11 of 18 PASS not_null_stg_users_user_id ....................................... [[32mPASS[0m in 0.10s]
+[2026-01-04T05:49:37.510+0000] {subprocess.py:93} INFO - [0m05:49:37  12 of 18 START test unique_stg_accounts_account_id ............................. [RUN]
+[2026-01-04T05:49:37.632+0000] {subprocess.py:93} INFO - [0m05:49:37  12 of 18 PASS unique_stg_accounts_account_id ................................... [[32mPASS[0m in 0.12s]
+[2026-01-04T05:49:37.635+0000] {subprocess.py:93} INFO - [0m05:49:37  13 of 18 START test unique_stg_billing_events_event_id ......................... [RUN]
+[2026-01-04T05:49:37.764+0000] {subprocess.py:93} INFO - [0m05:49:37  13 of 18 PASS unique_stg_billing_events_event_id ............................... [[32mPASS[0m in 0.13s]
+[2026-01-04T05:49:37.766+0000] {subprocess.py:93} INFO - [0m05:49:37  14 of 18 START test unique_stg_incident_events_event_id ........................ [RUN]
+[2026-01-04T05:49:37.893+0000] {subprocess.py:93} INFO - [0m05:49:37  14 of 18 PASS unique_stg_incident_events_event_id .............................. [[32mPASS[0m in 0.12s]
+[2026-01-04T05:49:37.897+0000] {subprocess.py:93} INFO - [0m05:49:37  15 of 18 START test unique_stg_login_events_event_id ........................... [RUN]
+[2026-01-04T05:49:38.007+0000] {subprocess.py:93} INFO - [0m05:49:38  15 of 18 PASS unique_stg_login_events_event_id ................................. [[32mPASS[0m in 0.11s]
+[2026-01-04T05:49:38.010+0000] {subprocess.py:93} INFO - [0m05:49:38  16 of 18 START test unique_stg_subscriptions_subscription_id ................... [RUN]
+[2026-01-04T05:49:38.116+0000] {subprocess.py:93} INFO - [0m05:49:38  16 of 18 PASS unique_stg_subscriptions_subscription_id ......................... [[32mPASS[0m in 0.11s]
+[2026-01-04T05:49:38.118+0000] {subprocess.py:93} INFO - [0m05:49:38  17 of 18 START test unique_stg_usage_events_event_id ........................... [RUN]
+[2026-01-04T05:49:38.340+0000] {subprocess.py:93} INFO - [0m05:49:38  17 of 18 PASS unique_stg_usage_events_event_id ................................. [[32mPASS[0m in 0.22s]
+[2026-01-04T05:49:38.343+0000] {subprocess.py:93} INFO - [0m05:49:38  18 of 18 START test unique_stg_users_user_id ................................... [RUN]
+[2026-01-04T05:49:38.438+0000] {subprocess.py:93} INFO - [0m05:49:38  18 of 18 PASS unique_stg_users_user_id ......................................... [[32mPASS[0m in 0.09s]
+[2026-01-04T05:49:38.483+0000] {subprocess.py:93} INFO - [0m05:49:38
+[2026-01-04T05:49:38.484+0000] {subprocess.py:93} INFO - [0m05:49:38  Finished running 18 tests in 0 hours 0 minutes and 2.69 seconds (2.69s).
+[2026-01-04T05:49:38.508+0000] {subprocess.py:93} INFO - [0m05:49:38
+[2026-01-04T05:49:38.509+0000] {subprocess.py:93} INFO - [0m05:49:38  [32mCompleted successfully[0m
+[2026-01-04T05:49:38.509+0000] {subprocess.py:93} INFO - [0m05:49:38
+[2026-01-04T05:49:38.510+0000] {subprocess.py:93} INFO - [0m05:49:38  Done. PASS=18 WARN=0 ERROR=0 SKIP=0 TOTAL=18
+[2026-01-04T05:49:38.676+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-04T05:49:38.696+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dbt_bronze_to_gold, task_id=dbt_test_staging, execution_date=20260104T054928, start_date=20260104T054932, end_date=20260104T054938
+[2026-01-04T05:49:38.736+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-04T05:49:38.753+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

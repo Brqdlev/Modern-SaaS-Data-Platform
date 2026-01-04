@@ -47,3 +47,6 @@ dbt_config/
 Apache Airflow/dbt/profiles.yml
 **/profiles.yml
 
+Apache Airflow/logs/
+logs/
+*.log

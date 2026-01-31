@@ -147,6 +147,34 @@ This table allows proactive monitoring of data quality **even when pipelines tec
 
 ---
 
+### 🥇 Gold Layer – Analytics-Ready Models
+**Purpose:** Deliver governed datasets for analysis
+
+The Gold layer contains **fact and dimension tables**, modeled for analytics and reporting.
+
+#### Fact Tables
+- Usage events facts
+- Billing events facts
+- Login events facts
+- Incident events facts
+
+#### Dimension Tables
+- Account dimension
+- User dimension
+- Subscription dimension
+- Incident dimension
+
+**Problems Solved:**
+- Eliminated ad-hoc metric definitions
+- Prevented logic duplication in BI tools
+- Ensured consistent KPI calculations
+
+**Problems Avoided:**
+- Analysts querying Silver tables directly
+- Metric drift across teams and dashboards
+
+---
+
 ## ⏱️ Orchestration – Self-Hosted Apache Airflow
 
 **Problem Solved:** Uncontrolled execution and dependency failures  

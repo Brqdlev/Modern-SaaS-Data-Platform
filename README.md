@@ -1,20 +1,20 @@
-Modern SaaS Data Platform with Orchestration & Data Reliability
+# Modern SaaS Data Platform with Orchestration & Data Reliability
 
-📌 Project Overview
+## 📌 Project Overview
 
-This project implements a modern, production-style SaaS data platform designed to address common data engineering failure modes such as silent data issues, unreliable incremental loads, and lack of observability.
+This project implements a **modern, production-style SaaS data platform** designed to address common **data engineering failure modes** such as silent data issues, unreliable incremental loads, and lack of observability.
 
-The platform ingests data from a MySQL OLTP system, performs incremental extraction using self-hosted Airbyte, loads data into a PostgreSQL OLAP / data warehouse, applies transformations using dbt with a medallion architecture, and orchestrates the entire workflow using self-hosted Apache Airflow.
+The platform ingests data from a **MySQL OLTP system**, performs **incremental extraction using self-hosted Airbyte**, loads data into a **PostgreSQL OLAP / data warehouse**, applies transformations using **dbt with a medallion architecture**, and orchestrates the entire workflow using **self-hosted Apache Airflow**.
 
-Beyond standard ELT, this project focuses on data reliability, anomaly detection, and preventing silent data failures—a frequent issue in real-world SaaS pipelines.
+Beyond standard ELT, this project focuses on **data reliability**, **anomaly detection**, and **preventing silent data failures**—a frequent issue in real-world SaaS pipelines.
 
 ---
 
-🚨 Problems Addressed (Before This Architecture)
+## 🚨 Problems Addressed (Before This Architecture)
 
 This project was designed to solve and avoid several real-world data platform problems:
 
-❌ Silent Data Failures
+### ❌ Silent Data Failures
 - Pipelines can succeed technically while data is:
   - Incomplete
   - Duplicated
@@ -22,37 +22,36 @@ This project was designed to solve and avoid several real-world data platform pr
   - Skewed
 - Business users often discover issues too late
 
-❌ Unreliable Incremental Loads
+### ❌ Unreliable Incremental Loads
 - Full reloads do not scale
 - Incorrect incremental logic can:
   - Miss events
   - Double-count usage
   - Break downstream metrics
 
-❌ No Observability into Data Health
+### ❌ No Observability into Data Health
 - Traditional pipelines lack visibility into:
   - Volume changes
   - Distribution anomalies
   - Data freshness
   - Trend breaks
 
-❌ No Clear Separation of Concerns
+### ❌ No Clear Separation of Concerns
 - Mixing raw ingestion and transformations
 - Difficult debugging
 - Hard to scale transformations safely
 
 ---
 
-🏗️ Architecture
+## 🏗️ Architecture
 
-High-level flow:
-
+**High-level flow:**
 
 ---
 
-🗂️ Data Domain (SaaS Platform)
+## 🗂️ Data Domain (SaaS Platform)
 
-The datasets represent a typical SaaS application event-driven architecture:
+The datasets represent a typical **SaaS application event-driven architecture**:
 
 - **accounts** – Customer and tenant information  
 - **users** – End users linked to accounts  
@@ -65,17 +64,17 @@ The datasets represent a typical SaaS application event-driven architecture:
 
 ---
 
-🔄 Data Pipeline & Design Decisions
+## 🔄 Data Pipeline & Design Decisions
 
-1. OLTP Source – MySQL (Dockerized)
+### 1. OLTP Source – MySQL (Dockerized)
 - Simulates a production SaaS transactional database
 - Event-based and append-heavy tables
 - Designed to reflect real SaaS workloads
 
 ---
 
-2. Ingestion – Self-Hosted Airbyte (Incremental)
-Problem Solved: Inefficient full reloads and duplicated data  
+### 2. Ingestion – Self-Hosted Airbyte (Incremental)
+**Problem Solved:** Inefficient full reloads and duplicated data  
 
 - Incremental extraction based on event timestamps / IDs
 - Minimizes load on the source system
@@ -84,8 +83,8 @@ Problem Solved: Inefficient full reloads and duplicated data
 
 ---
 
-3. Data Warehouse – PostgreSQL (OLAP)
-Problem Solved: Lack of a centralized analytical store  
+### 3. Data Warehouse – PostgreSQL (OLAP)
+**Problem Solved:** Lack of a centralized analytical store  
 
 - Acts as the analytical source of truth
 - Optimized for transformations and analytics
@@ -93,22 +92,22 @@ Problem Solved: Lack of a centralized analytical store
 
 ---
 
-🧱 dbt Medallion Architecture
+## 🧱 dbt Medallion Architecture
 
-🟫 Bronze Layer (Raw Ingestion)
-Goal: Preserve source fidelity
+### 🟫 Bronze Layer (Raw Ingestion)
+**Goal:** Preserve source fidelity
 
 - No transformations
 - Duplicates allowed
 - No business logic
 - Used strictly for lineage and recovery
 
-Problem Avoided: Loss of raw data and inability to reprocess
+**Problem Avoided:** Loss of raw data and inability to reprocess
 
 ---
 
-🧪 Staging Layer (Normalization & Validation)
-Goal: Make data usable and testable
+### 🧪 Staging Layer (Normalization & Validation)
+**Goal:** Make data usable and testable
 
 - Column renaming and standardization
 - Data type conversions
@@ -118,12 +117,12 @@ Goal: Make data usable and testable
   - `unique`
   - Referential integrity
 
-Problem Avoided: Propagating bad data downstream
+**Problem Avoided:** Propagating bad data downstream
 
 ---
 
-🥈 Silver Layer (Trusted & Enriched Data)
-Goal: Analytics-ready, reliable datasets
+### 🥈 Silver Layer (Trusted & Enriched Data)
+**Goal:** Analytics-ready, reliable datasets
 
 - Deduplication logic
 - Business-level transformations
@@ -131,10 +130,10 @@ Goal: Analytics-ready, reliable datasets
 
 ---
 
-📈 Data Health & Anomaly Metrics (Custom Table)
-Key Differentiator of This Project**
+### 📈 Data Health & Anomaly Metrics (Custom Table)
+**Key Differentiator of This Project**
 
-A dedicated table was created to detect SILENT DATA FAILURES, tracking:
+A dedicated table was created to detect **silent data failures**, tracking:
 
 - Data volume per account
 - Event distribution changes
@@ -142,15 +141,15 @@ A dedicated table was created to detect SILENT DATA FAILURES, tracking:
 - Trend shifts
 - Moving averages for anomaly detection
 
-This table allows proactive monitoring of data quality even when pipelines technically succeed.
+This table allows proactive monitoring of data quality **even when pipelines technically succeed**.
 
-Problem Solved: Pipelines succeeding while data quality silently degrades
+**Problem Solved:** Pipelines succeeding while data quality silently degrades
 
 ---
 
-⏱️ Orchestration – Self-Hosted Apache Airflow
+## ⏱️ Orchestration – Self-Hosted Apache Airflow
 
-Problem Solved: Uncontrolled execution and dependency failures  
+**Problem Solved:** Uncontrolled execution and dependency failures  
 
 - Orchestrates:
   - Airbyte ingestion
@@ -162,7 +161,7 @@ Problem Solved: Uncontrolled execution and dependency failures
 
 ---
 
-#🛠️ Tech Stack Summary
+## 🛠️ Tech Stack Summary
 
 | Layer | Tools |
 |-----|------|
@@ -175,7 +174,7 @@ Problem Solved: Uncontrolled execution and dependency failures
 
 ---
 
-🎯 Key Learnings & Outcomes
+## 🎯 Key Learnings & Outcomes
 
 - Built a **production-style SaaS data platform**
 - Implemented **incremental ingestion correctly**
@@ -186,7 +185,7 @@ Problem Solved: Uncontrolled execution and dependency failures
 
 ---
 
-🚀 Future Improvements
+## 🚀 Future Improvements
 
 - Automated alerting based on anomaly thresholds
 - Metadata-driven data quality checks
@@ -196,13 +195,11 @@ Problem Solved: Uncontrolled execution and dependency failures
 
 ---
 
-📎 Author
+## 📎 Author
 
-Bradley Alojado
+**[Your Name]**  
 Data Engineer | Analytics Engineer  
 Portfolio Project #3
 
 ---
-
-
 

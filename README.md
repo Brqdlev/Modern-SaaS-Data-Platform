@@ -225,7 +225,7 @@ The Gold layer contains **fact and dimension tables**, modeled for analytics and
 
 ## 📎 Author
 
-**[Your Name]**  
+**Bradley Alojado**  
 Data Engineer | Analytics Engineer  
 Portfolio Project #3
 
